@@ -2,14 +2,49 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%} {% endblock %}</title>
-</head>
-<body>
-    {% block wrapper %}
+    <!-- ========== STYLESHEETS ========== -->
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
     
-    {% endblock  %}
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="m-topbar">
+            <p>Yeni Üyelere Özel Sepette %10 İndirim <span>KOD:OZEL10UYE</span></p>
+        </div>
+        <header class="m-header">
+            <div class="m-container">
+                <div class="m-logo">
+                    <a href="">
+                        <img src="{% static 'images/marjikon.png'%}" alt="">
+                    </a>
+                </div>
+                <nav class="m-navbar">
+                    <ul class="m-navbar-nav">
+                        <li><a href="">Kadın</a></li>
+                        <li><a href="">Erkek</a></li>
+                        <li><a href="">Çocuk</a></li>
+                        <li><a href="">Elektronik</a></li>
+                        <li><a href="">Ofis</a></li>
+                        <li><a href="">Yaşam</a></li>
+                    </ul>
+                </nav>
+                <div class="m-auth">
+    
+                </div>
+            </div>
+        </header>
+
+        {% block wrapper %}
+
+        {% endblock %}
+
+    </div>
 </body>
+
 </html>

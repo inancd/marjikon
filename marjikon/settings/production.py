@@ -5,7 +5,7 @@ load_dotenv()
 
 
 ALLOWED_HOSTS = ['marjikon.com', 'www.marjikon.com']
-
+STATIC_ROOT = BASE_DIR / 'static'
 
 DATABASES = {
     'default': {
