@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply
+        font-body text-sm
+    }
+}
+
+.top-bar {
+    @apply
+    text-center bg-black-m text-white py-3 font-body
+}
+
+/* Header */
+header {
+    @apply
+    w-full h-auto border-b
+}
+
+.main-header .container {
+    @apply
+    grid grid-cols-3 items-center
+    h-20
+}
+.header-menu{
+    @apply
+    md:flex justify-start 
+    hidden
+}
+.header-menu .navbar {
+    @apply
+    flex
+}
+.header-logo {
+    @apply
+    flex
+    justify-center
+}
+.header-logo .m-logo {
+    @apply
+    w-44
+}
+.header-auth {
+    @apply
+    flex justify-end
+}
+.header-auth .btn {
+    @apply
+    first:mr-2
+}
+
+/* Navigation*/
+.navbar {
+    @apply
+    flex space-x-4
+}
+.menu-item {
+    @apply
+    relative
+}
+
+.menu-link {
+    @apply
+    font-normal text-base
+    after:content-['\f107'] after:font-awesome
+    after:relative
+    after:pointer-events-none
+    after:ml-[3px] after:top-[2px]
+}
+
+.mega-menu {
+    @apply
+    hidden
+    top-20
+    shadow-lg
+    w-full
+    left-0
+}
+
+/* Container */
+.container {
+    @apply
+    mx-auto
+}
+/* Register-Login */
+.m-auth {
+    @apply
+    flex flex-col 
+}
+.m-auth-content {
+    @apply
+    m-4 p-6 max-w-md mx-auto bg-white rounded-lg
+    flex flex-col items-center justify-center
+}
+
+.m-auth-title {
+    @apply
+    text-lg text-gray-900 font-semibold
+}
+
+@layer components {
+    .btn {
+        @apply
+        px-5 py-3
+        border-none 
+        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black
+    }
+    .btn-black {
+        @apply
+        bg-black-m text-white
+        hover:bg-zinc-900
+        
+    }
+    .form-register {
+        @apply
+        w-full max-w-md mt-4
+    }
+    .form-group {
+        @apply
+        flex flex-col mb-4
+    }
+    .form-control {
+        @apply
+        bg-gray-50 border border-gray-300 text-gray-900 text-sm
+        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+    }
+    .form-label {
+        @apply
+        mb-2 text-base font-normal text-gray-700
+    }
+    
+}
+
+/* Footer*/
+
+.footer {
+    @apply
+    min-w-full bg-slate-100 py-10
+}
+.footer .container {
+    @apply
+    grid grid-cols-2 md:grid-cols-4 px-10 md:px-0
+}
+
+.footer-title {
+    @apply
+    text-xl font-bold pb-5
+}
+.footer-item {
+    @apply
+    pb-3
+}
+.footer-payment__logo {
+    @apply
+    flex
+    h-10
+    gap-x-3
+}
+
+.footer-social {
+    @apply
+    mb-4
+}
+
+.footer-payment__logo__troy {
+    @apply
+    bg-payments_troy bg-cover bg-no-repeat bg-center
+    inline-block w-16 relative
+}
+
+.footer-payment__logo__visa {
+    @apply
+    bg-payments_visa bg-cover bg-no-repeat bg-center
+    inline-block w-16 relative
+
+}
+.footer-payment__logo__master {
+    @apply
+    bg-payments_master bg-cover bg-no-repeat bg-center
+    inline-block w-16 relative
+
+}
+/* Bottom Bar */
+
+.bottom-bar {
+    @apply
+    min-w-full bg-black-m
+}
+.bottom-bar .container {
+    @apply
+    grid grid-cols-1 md:grid-cols-2 items-center px-10 md:px-0
+}
+.bottom-bar__navbar {
+    @apply
+    py-4
+    
+}
+.bottom-bar__navbar-nav {
+    @apply
+    flex md:justify-end
+}
+.bottom-bar__navbar-item {
+    @apply
+    md:mr-3
+    md:last:mr-0
+
+}
+.bottom-bar__navbar-link {
+    @apply
+    text-white
+}
+
+

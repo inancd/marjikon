@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+
+
+{% block wrapper %}
+<div class="grid md:grid-cols-2 grid-cols-1 gap-x-16">
+    <div class="flex sm:justify-end justify-center my-10">
+        <div class="flex flex-col w-full md:w-[400px] ">
+            <h2 class="text-2xl text-zinc-800 font-semibold py-4">Üye Girişi</h2>
+            <form action="" method="post" class="flex flex-col min-w-full pt-4">
+                {% csrf_token %}
+                {% if messages  %}
+                    {% for message in messages  %}
+                    <p><strong>{{message}}</strong></p>
+                    {% endfor %}     
+                {% endif %}
+                <div class="form-group">
+                    <label for="" class="form-label">E-Mail</label>
+                    <input type="email" name="email" id="" class="form-control" placeholder="marjikon@marjikon.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Şifre</label>
+                    <input type="password" name="password" id="" class="form-control" placeholder="******" required>
+                </div>
+                <div class="w-full">
+                    <button type="submit" class="btn btn-black w-full">Giriş Yap</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="my-10">
+        <h2 class="text-2xl text-zinc-800 font-semibold py-4">Yeni Müşteri?</h2>
+        <p class="py-8 text-base text-gray-500">
+            Erken İndirim erişiminin yanı sıra size özel yeniz <br/> ürünler, trendler ve promosyonlar için kaydolun. 
+        </p>
+        <a href="" class="btn btn-black">Kayıt Olun</a>
+    </div>
+</div>
+    
+{% endblock  %}
+    

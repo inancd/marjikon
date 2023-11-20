@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800&display=swap');
 
-*{
+*, *::before, *::after{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 a {
@@ -14,72 +15,239 @@ ul,li {
     list-style-type: none;
 }
 
+button, input {
+    overflow: visible;
+}
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Jost', sans-serif, Arial, Helvetica;
     font-size: 0.875em;
-    box-sizing: border-box;
 }
 
-/*////////// /////////*/
-
-.wrapper {
-    position: relative;
-
-}
-
-/*////////// /////////*/
-
-.m-topbar {
-    background-color: #CFE9E1;
+/* Header */
+.top-bar {
     width: 100%;
-    height: 40px;
+    background-color: #000;
+    color: #fff;
     text-align: center;
-    line-height: 40px;
+    padding: 10px;
 }
-.m-topbar p{
-    font-size: 0.875em;
+header {
+    width: 100%;
+    height: auto;
+}
+
+.main-header .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    height: 90px;
+}
+
+.header-logo{
+    text-align: center;
+}
+
+.header-logo .m-logo {
+    width: 176px;
+
+}
+
+.header-auth {
+    display: flex;
+    justify-content: end;
+}
+
+.header-auth button {
+    margin-left: 10px;
+}
+
+/* Header Menu */
+.header-menu {
+    display: flex;
+    justify-content: start;
+}
+
+.header-menu .navbar {
+    display: flex;
+}
+
+.menu-item {
+    position: relative;
+    margin: 0px 10px;
+    height: 100%;
+}
+.menu-link {
+    display: block;
+    color: #222;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s;
     font-weight: 400;
 }
+.menu-link:hover {
+    color: #000;
+}
+.menu-link::after {
+    content: '\f107';
+    pointer-events: none;
+    position: relative;
+    margin-left: 3px;
+    font-family: 'FontAwesome';
+    top: 1px;
+    font-weight: 200;
+}
 
-
-/*////////// HEADER /////////*/
-
-.m-header {
+.menu-link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -1px;
+    left: 50%;
+    background-color: #222;
+    transition: all .3s ease;
+}
+.menu-link:hover::before {
     width: 100%;
-    height: 75px;
-    background-color: #fff;
-    display: flex;
-    
+    left: 0;
 }
 
-.m-logo a img {
-    width: 176px;
-} 
-
-.m-navbar-nav {
-    display: flex;
-    list-style: none;
-    padding: 0;
+/* Mega Dropdown Menu */
+.menu-item .mega-menu {
+    display: none;
+    position: fixed;
+    left: 0%;
+    top:100px;
+    width: 100vw;
+    background-color: #f1f1f1;
+    box-shadow: 0 6px 15px #0000001f;
+    z-index: 1000;
+    transform: translateX(0);
 }
-.m-navbar-nav li {
+.menu-item:hover .mega-menu, .mega-menu:hover {
+    display: block;
+}
+.mega-menu ul {
+    margin-bottom: 10px;
+
+}
+.mega-menu ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Button */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    font-size: 1rem;
     margin-right: 20px;
 }
+.btn-black {
+    background-color: #222;
+    color: #fff;
+}
+.btn-black:hover {
+    background-color: #000;
+}
 
-.m-navbar-nav li a {
-    text-transform: uppercase;
-    color: #333;
+/* Main */
+.main {
+
+}
+
+@media (max-width: 1800px) and (min-width: 1200px) {
+    .main .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* Register-Login Main */
+.main-register-form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-register-form form {
+    display: flex;
+    flex-direction: column;
+}
+.main-register-form .form-control {
+    height: 44px;
+    border-radius: 0;
+    padding: 11px 20px 12px;
+    color: #666;
+    font-size: 14px;
+    line-height: 20px;
+}
+.main-register-form .form-control:focus {
+    box-shadow: none;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0,375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    transition:border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; ;
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #222;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+.form-label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+/* Button */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    font-size: 1rem;
+    margin-right: 20px;
+}
+.btn-black {
+    background-color: #222;
+    color: #fff;
+}
+.btn-black:hover {
+    background-color: #000;
 }
 
 
+/* Container */
 
-/*////////// CONTAINER /////////*/
-
-.m-container {
+.container {
     width: 100%;
-    max-width: 1270px;
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
-
+    max-width: 1790px;
+    margin:0 auto;
+}
+@media (max-width: 1800px) and (min-width: 1200px) {
+    .main-header .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }

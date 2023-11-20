@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+
+{% block wrapper %}
+
+<div class="m-auth">
+    <div class="m-auth-content">
+      <h2 class="m-auth-title">HESAP OLUŞTUR</h2>
+      <form method="post" action="{% url 'accounts:register' %}" class="form-register">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="marjikon@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password" class="form-label">Şifre</label>
+          <input type="password" id="password" name="password1" class="form-control" placeholder="******" required>
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Şifre Tekrar</label>
+            <input type="password" id="password" name="password2" class="form-control" placeholder="*******" required>
+          </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-black">ÜYE OL</button>
+        </div>
+        <div class="text-sm font-medium text-gray-500">
+            Erken İndirim erişiminin yanı sıra size özel yeni ürünler, trendler ve promosyonlar için kaydolun
+        </div>
+        <div class="mt-6 text-center">
+          <a href="{% url 'accounts:login' %}" class="text-blue-600 hover:underline">Zaten hesabınız var mı? GİRİŞ YAP</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+{% endblock %}

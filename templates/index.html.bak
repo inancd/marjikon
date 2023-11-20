@@ -1,0 +1,98 @@
+<!--<div class="wrapper">
+        <div class="m-topbar">
+            <p>Yeni Üyelere Özel Sepette %10 İndirim <span>KOD:OZEL10UYE</span></p>
+        </div>
+        <header class="m-header">
+            <div class="m-container">
+                <nav class="m-navbar">
+                    <ul class="m-navbar-nav">
+                        <li><a href="">Kadın</a></li>
+                        <li><a href="">Erkek</a></li>
+                        <li><a href="">Çocuk</a></li>
+                        <li><a href="">Elektronik</a></li>
+                        <li class="dropdown">
+                            <a href="">Ofis</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Test 01</a></li>
+                                <li><a href="">Test 02</a></li>
+                                <li><a href="">Test 03</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Yaşam</a></li>
+                    </ul>
+                </nav>
+                <div class="m-logo">
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'images/marjikon.png'%}" alt="">
+                    </a>
+                </div>
+                <div class="m-auth">
+                    
+                    {% if user.is_authenticated %}
+                        
+                    <ul style="display: flex;">
+                        <li class="dropdown">
+                            <a href="">
+                                <svg width="20" height="23" viewBox="0 0 20 23" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1 21.5714V20.2857C1 15.3151 5.02944 11.2857 10 11.2857C14.9706 11.2857 19 15.3151 19 20.2857V21.5714"
+                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M10 11.2857C12.8403 11.2857 15.1429 8.98313 15.1429 6.14286C15.1429 3.30253 12.8403 1 10 1C7.15968 1 4.85715 3.30253 4.85715 6.14286C4.85715 8.98313 7.15968 11.2857 10 11.2857Z"
+                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <p class="auth-name">{{user.personalinfo.first_name }} <span>{{user.personalinfo.last_name}}</span></p>
+                                <li><a href="">Hesabım</a></li>
+                                <li><a href="">Siparişlerim</a></li>
+                                <li><a href="{% url 'accounts:logout' %}">Çıkış Yap</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19.375 22C20.2448 22 20.95 21.2948 20.95 20.425C20.95 19.5552 20.2448 18.85 19.375 18.85C18.5052 18.85 17.8 19.5552 17.8 20.425C17.8 21.2948 18.5052 22 19.375 22Z"
+                                        fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M8.87499 22C9.74481 22 10.45 21.2948 10.45 20.425C10.45 19.5552 9.74481 18.85 8.87499 18.85C8.00514 18.85 7.29999 19.5552 7.29999 20.425C7.29999 21.2948 8.00514 22 8.87499 22Z"
+                                        fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M4.15 3.1H22L19.9 14.65H6.25L4.15 3.1ZM4.15 3.1C3.975 2.4 3.1 1 1 1"
+                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M19.9 14.65H6.24999H4.3923C2.51878 14.65 1.52499 15.4703 1.52499 16.75C1.52499 18.0297 2.51878 18.85 4.3923 18.85H19.375"
+                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="">
+                                <svg width="26" height="24" viewBox="0 0 26 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M25 8.03466C25 9.89044 24.2874 11.6729 23.015 12.9915C20.0859 16.0276 17.2449 19.1936 14.2064 22.1196C13.5099 22.7806 12.405 22.7565 11.7386 22.0656L2.98451 12.9915C0.338497 10.2486 0.338497 5.82068 2.98451 3.07788C5.65653 0.30814 10.0095 0.30814 12.6815 3.07788L12.9998 3.4077L13.3178 3.07808C14.5989 1.7494 16.3437 1 18.1664 1C19.989 1 21.7337 1.74933 23.015 3.07788C24.2876 4.39654 25 6.17892 25 8.03466Z"
+                                        stroke="black" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <div class="m-auth">
+                        <div class="m-login">
+                            <a href="{% url 'accounts:login' %}" class="btn btn-full">Üye Girişi</a>
+                        </div>
+                        <div class="m-register">
+                            <a href="{% url 'accounts:register' %}" class="btn btn-full">Kayıt Ol</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+    </div>-->
