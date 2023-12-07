@@ -61,7 +61,6 @@ class PersonalInfo(models.Model):
     first_name = models.CharField(_('first name'), max_length=30)
     last_name = models.CharField(_('last name'), max_length=150)
     birth_date = models.DateField(_('birth date'), null=True, blank=True)
-    phone_number = models.CharField(_('phone number'), max_length=15)
     GENDER_CHOICES = [
         ('M', _('Male')),
         ('F', _('Female')),
