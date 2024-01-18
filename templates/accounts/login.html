@@ -21,11 +21,12 @@
                     <label for="" class="form-label">Şifre</label>
                     <input type="password" name="password" id="" class="form-control" placeholder="******" required>
                 </div>
-                <div>
-                    <a href="{% url 'accounts:password_reset' %}">Şifremi Unuttum</a>
-                </div>
                 <div class="w-full">
                     <button type="submit" class="btn btn-black w-full">Giriş Yap</button>
+                </div>
+
+                <div class="mt-3">
+                    <a href="{% url 'accounts:password_reset' %}" >Şifremi Unuttum</a>
                 </div>
             </form>
         </div>

@@ -22,7 +22,7 @@ def custom_login(request):
                 login(request, user)
                 return redirect('index')
         else:
-            messages.error(request, _('Invalid email or password. Please try again.'))
+            messages.error(request, _('Yanlış kullanıcı adı veya şifre'))
 
     return render(request, 'accounts/login.html')
 
@@ -30,7 +30,8 @@ def custom_register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            login(request, user)
             messages.success(request, _('Your account has been created! You can login now.'))
             return redirect('accounts:login')
     else:
@@ -40,7 +41,7 @@ def custom_register(request):
 
 def custom_logout(request):
     logout(request)
-    messages.success(request, _('You have been logged out successfully.'))
+    messages.success(request, _('Başarıyla Çıkış Yaptınız'))
     return redirect('accounts:login')
 
 
