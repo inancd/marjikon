@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser, PersonalInfo
+from .models import CustomAddress
 
 admin.site.unregister(Group)
 class PersonalInfoInline(admin.StackedInline):
@@ -30,6 +31,12 @@ class CustomUserAdmin(UserAdmin):
         if not obj:
             return list()
         return super(CustomUserAdmin, self).get_inline_instances(request, obj)
+
+@admin.register(CustomAddress)
+class CustomAddressAdmin(admin.ModelAdmin):
+    list_display = ('user', 'address_title', 'city')
+    list_filter = ('city', 'biling_type')
+    search_fields = ['user__username', 'address_title', 'city']
 
 
 admin.site.register(CustomUser, CustomUserAdmin)

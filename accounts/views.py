@@ -32,8 +32,7 @@ def custom_register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, _('Your account has been created! You can login now.'))
-            return redirect('accounts:login')
+            return redirect('index')
     else:
         form = CustomUserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})

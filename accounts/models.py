@@ -73,3 +73,27 @@ class PersonalInfo(models.Model):
             return self.user.email
         else: 
             return f"{self.first_name} {self.last_name}"
+
+
+class CustomAddress(models.Model):
+    user = models.ForeignKey('CustomUser', on_delete=models.CASCADE)
+    first_name = models.CharField(_('first name'), max_length=30)
+    last_name = models.CharField(_('last name'), max_length=150)
+    phone_number = models.CharField(_('phone number'), max_length=11)
+    city = models.CharField(_('city'), max_length=100, blank=True)
+    district = models.CharField(_('state'), max_length=200)
+    neighborhood = models.CharField(_('neighborhood'), max_length=100)
+    address = models.TextField()
+    address_title = models.CharField(max_length=100)
+
+    BILING_TYPE_CHOICES = (
+        ('personal', 'Bireysel'),
+        ('corporate', 'Kurumsal')
+    )
+    biling_type = models.CharField(_('biling type'), blank=True, choices=BILING_TYPE_CHOICES, max_length=100)
+    tax_number = models.CharField(_('tax number'), max_length=20, blank=True)
+    tax_office = models.CharField(_('tax office'), max_length=100, blank=True)
+    company_name = models.CharField(_('company name'), max_length=100, blank=True)
+
+    def __str__(self):
+        return f"{self.address_title} - {self.user.email}"
