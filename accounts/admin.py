@@ -35,7 +35,7 @@ class CustomUserAdmin(UserAdmin):
 @admin.register(CustomAddress)
 class CustomAddressAdmin(admin.ModelAdmin):
     list_display = ('user', 'address_title', 'city')
-    list_filter = ('city', 'biling_type')
+    list_filter = ('city', 'billing_type')
     search_fields = ['user__username', 'address_title', 'city']
 
 

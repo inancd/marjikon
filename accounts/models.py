@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
+from django.utils.crypto import get_random_string
 from django.utils.translation import gettext_lazy as _
 
 
@@ -69,7 +71,7 @@ class PersonalInfo(models.Model):
     gender = models.CharField(_('gender'), max_length=1, choices=GENDER_CHOICES)
 
     def __str__(self):
-        if self.first_name == "" :
+        if self.first_name == "":
             return self.user.email
         else: 
             return f"{self.first_name} {self.last_name}"
@@ -77,10 +79,11 @@ class PersonalInfo(models.Model):
 
 class CustomAddress(models.Model):
     user = models.ForeignKey('CustomUser', on_delete=models.CASCADE)
+    slug = models.SlugField(unique=True, blank=True)
     first_name = models.CharField(_('first name'), max_length=30)
     last_name = models.CharField(_('last name'), max_length=150)
     phone_number = models.CharField(_('phone number'), max_length=11)
-    city = models.CharField(_('city'), max_length=100, blank=True)
+    city = models.CharField(_('city'), max_length=100)
     district = models.CharField(_('state'), max_length=200)
     neighborhood = models.CharField(_('neighborhood'), max_length=100)
     address = models.TextField()
@@ -90,10 +93,19 @@ class CustomAddress(models.Model):
         ('personal', 'Bireysel'),
         ('corporate', 'Kurumsal')
     )
-    biling_type = models.CharField(_('biling type'), blank=True, choices=BILING_TYPE_CHOICES, max_length=100)
+    billing_type = models.CharField(_('biling type'), blank=True, choices=BILING_TYPE_CHOICES, max_length=100)
     tax_number = models.CharField(_('tax number'), max_length=20, blank=True)
     tax_office = models.CharField(_('tax office'), max_length=100, blank=True)
     company_name = models.CharField(_('company name'), max_length=100, blank=True)
 
     def __str__(self):
         return f"{self.address_title} - {self.user.email}"
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.address_title)
+        original_slug = self.slug
+        counter = 1
+        while CustomAddress.objects.filter(slug=self.slug).exclude(id=self.id).exists():
+            self.slug = f'{original_slug}-{counter}'
+            counter += 1
+        super().save(*args, **kwargs)
