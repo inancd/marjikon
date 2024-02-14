@@ -6,204 +6,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title%} {% endblock %}</title>
+    <title>{% block title %} {% endblock %}</title>
     <!-- ========== STYLESHEETS ========== -->
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- Top Bar -->
-        <div class="top-bar">
-            <p>Yeni Üyelere Özel Sepette %10 İndirim <span>KOD:OZEL10UYE</span></p>
-        </div>
-        <!-- Header -->
-        <header>
-            <div class="main-header">
-                <div class="container">
-                    <!-- Navigation -->
-                    <nav class="header-menu">
-                        <ul class="navbar">
-                            <li class="menu-item">
-                                <a href="" class="menu-link">
-                                    Kadın
-                                </a>
-                                <div class="mega-menu">
-                                    <div class="container">
-                                        <ul>
-                                            <li><a href="">Test 01 Menu</a></li>
-                                            <li><a href="">Test 02 Menu</a></li>
-                                            <li><a href="">Test 03 Menu</a></li>
-                                        </ul>
-                                    </div>
+<div class="wrapper">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <p>Yeni Üyelere Özel Sepette %10 İndirim <span>KOD:OZEL10UYE</span></p>
+    </div>
+    <!-- Header -->
+    <header>
+        <div class="main-header">
+            <div class="container">
+                <!-- Navigation -->
+                <nav class="header-menu">
+                    <ul class="navbar">
+                        <li class="menu-item">
+                            <a href="" class="menu-link">
+                                Kadın
+                            </a>
+                            <div class="mega-menu">
+                                <div class="container">
+                                    <ul>
+                                        <li><a href="">Test 01 Menu</a></li>
+                                        <li><a href="">Test 02 Menu</a></li>
+                                        <li><a href="">Test 03 Menu</a></li>
+                                    </ul>
                                 </div>
-                            </li>
-                            <li class="menu-item">
-                                <a href="" class="menu-link">Erkek</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="" class="menu-link">Çocuk</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="" class="menu-link">Elektronik</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="" class="menu-link">Ofis</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="" class="menu-link">Yaşam</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="header-logo">
-                        <a href="{% url 'index' %}">
-                            <img src="{% static 'images/marjikon.png' %}" alt="" class="m-logo">
-                        </a>
-                    </div>
-                    <div class="header-auth">
-                        {% if user.is_authenticated %}
-                        <a href="{% url 'accounts:logout' %}">Çıkış Yap</a>
-                        {% else %}
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <a href="" class="menu-link">Erkek</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="" class="menu-link">Çocuk</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="" class="menu-link">Elektronik</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="" class="menu-link">Ofis</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="" class="menu-link">Yaşam</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-logo">
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'images/marjikon.png' %}" alt="" class="m-logo">
+                    </a>
+                </div>
+                <div class="header-auth">
+                    {% if user.is_authenticated %}
+                        <div class="mr-5">
+                            <ul class="flex">
+                                <li class="flex ">
+                                    <a href="#" class="flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 mr-2">
+                                        <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>
+                                    </svg>
+                                    Hesabım</a>
+                                    <ul>
+                                        <li class="hidden hover:block">
+                                            <a href="">Siparişlerim</a>
+                                            <a href="">Değerlendirmelerim</a>
+                                            <a href="">Kullanıcı Bilgilerim</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="{% url 'accounts:logout' %}">Çıkış Yap</a>
+                        </div>
+                    {% else %}
                         <a href="{% url 'accounts:login' %}" class="btn btn-black">Giriş Yap</a>
                         <a href="{% url 'accounts:register' %}" class="btn btn-black">Kayıt Ol</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
-                        {% endif %}
+    </header>
+    <main class="main">
+        {% block wrapper %}
+
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-about">
+                <h2 class="footer-title">Marjikon</h2>
+                <ul class="footer-about__navbar">
+                    <li class="footer-item">
+                        <a href="">Biz Kimiz</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">İletişim</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">Satıcı Ol</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">Kariyer</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="footer-auth">
+                <h2 class="footer-title">Üye İşlemleri</h2>
+                <ul>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">Hesabım</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">Siparişlerim</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">Favorilerim</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">Takip Ettiklerim</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="footer-help">
+                <h2 class="footer-title">Yardım</h2>
+                <ul>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">Sıkça Sorulan Sorular</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">Nasıl İade Edebilirim </a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">Canlı Yardım</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">İşlem Rehberi</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-social">
+                    <h2 class="footer-title">Sosyal Medya</h2>
+                    <ul class="flex gap-x-4">
+                        <li>
+                            <a href="" class="w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
+                                    <path
+                                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512">
+                                    <path
+                                            d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512">
+                                    <path
+                                            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-payment">
+                    <h2 class="footer-title">Güvenli Alışveriş</h2>
+                    <div class="footer-payment__logo">
+                        <div class="footer-payment__logo__troy"></div>
+                        <div class="footer-payment__logo__visa"></div>
+                        <div class="footer-payment__logo__master"></div>
                     </div>
                 </div>
             </div>
 
-        </header>
-        <main class="main">
-            {% block wrapper %}
+        </div>
+    </footer>
 
-            {% endblock %}
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-about">
-                    <h2 class="footer-title">Marjikon</h2>
-                    <ul class="footer-about__navbar">
-                        <li class="footer-item">
-                            <a href="">Biz Kimiz</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">İletişim</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Satıcı Ol</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Kariyer</a>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="footer-auth">
-                    <h2 class="footer-title">Üye İşlemleri</h2>
-                    <ul>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Hesabım</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Siparişlerim</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Favorilerim</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Takip Ettiklerim</a>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="footer-help">
-                    <h2 class="footer-title">Yardım</h2>
-                    <ul>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Sıkça Sorulan Sorular</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Nasıl İade Edebilirim </a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">Canlı Yardım</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="" class="footer-link">İşlem Rehberi</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-social">
-                        <h2 class="footer-title">Sosyal Medya</h2>
-                        <ul class="flex gap-x-4">
-                            <li>
-                                <a href="" class="w-10">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
-                                        <path
-                                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512">
-                                        <path
-                                            d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512">
-                                        <path
-                                            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-payment">
-                        <h2 class="footer-title">Güvenli Alışveriş</h2>
-                        <div class="footer-payment__logo">
-                            <div class="footer-payment__logo__troy"></div>
-                            <div class="footer-payment__logo__visa"></div>
-                            <div class="footer-payment__logo__master"></div>
-                        </div>
-                    </div>
-                </div>
-
+    <!-- Bottom Bar-->
+    <div class="bottom-bar">
+        <div class="container">
+            <div class="bottom-bar__copyright">
+                <p class="text-white">Copyright 2024 | Powered by DvTech</p>
             </div>
-        </footer>
-
-        <!-- Bottom Bar-->
-        <div class="bottom-bar">
-            <div class="container">
-                <div class="bottom-bar__copyright">
-                    <p class="text-white">Copyright 2023 | Powered by DvTech</p>
-                </div>
-                <div class="bottom-bar__navbar">
-                    <ul class="bottom-bar__navbar-nav">
-                        <li class="bottom-bar__navbar-item">
-                            <a href="" class="bottom-bar__navbar-link">Çerez Tercihleri</a>
-                        </li>
-                        <li class="bottom-bar__navbar-item">
-                            <a href="" class="bottom-bar__navbar-link">KVK ve Gizlilik Politikası</a>
-                        </li>
-                        <li class="bottom-bar__navbar-item">
-                            <a href="" class="bottom-bar__navbar-link">Kullanım Koşulları</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="bottom-bar__navbar">
+                <ul class="bottom-bar__navbar-nav">
+                    <li class="bottom-bar__navbar-item">
+                        <a href="" class="bottom-bar__navbar-link">Çerez Tercihleri</a>
+                    </li>
+                    <li class="bottom-bar__navbar-item">
+                        <a href="" class="bottom-bar__navbar-link">KVK ve Gizlilik Politikası</a>
+                    </li>
+                    <li class="bottom-bar__navbar-item">
+                        <a href="" class="bottom-bar__navbar-link">Kullanım Koşulları</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>

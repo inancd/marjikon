@@ -17,14 +17,14 @@ def custom_login(request):
         if user is not None:
             if user.is_seller:
                 messages.error(request, _('Böyle Bir Kullanıcı Bulunamadı'))
-                return redirect('accounts:login')
+                return redirect('users:login')
             else:
                 login(request, user)
                 return redirect('index')
         else:
             messages.error(request, _('Yanlış kullanıcı adı veya şifre'))
 
-    return render(request, 'accounts/login.html')
+    return render(request, 'registration/login.html')
 
 def custom_register(request):
     if request.method == 'POST':
@@ -35,12 +35,12 @@ def custom_register(request):
             return redirect('index')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'accounts/register.html', {'form': form})
+    return render(request, 'registration/register.html', {'form': form})
 
 
 def custom_logout(request):
     logout(request)
     messages.success(request, _('Başarıyla Çıkış Yaptınız'))
-    return redirect('accounts:login')
+    return redirect('users:login')
 
 
